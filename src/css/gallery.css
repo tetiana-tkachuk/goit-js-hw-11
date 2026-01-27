@@ -95,7 +95,7 @@
   line-height: 2;
 }
 
-.descr .iziToast .iziToast-close {
+.iziToast .iziToast-close {
   background: url('../img/toast-close.svg') !important;
   background-repeat: no-repeat !important;
   background-position: 50% 50% !important;
