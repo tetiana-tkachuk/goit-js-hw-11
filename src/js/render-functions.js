@@ -9,15 +9,25 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
+const clearGallery = () => {
+  galleryListEl.innerHTML = '';
+};
+const showLoader = () => {
+  loaderEl.classList.add('is-visible');
+};
+const hideLoader = () => {
+  loaderEl.classList.remove('is-visible');
+};
+
 const createGallery = images => {
   const galleryItemsMarkup = images
     .map(
       image => `<li class="gallery-item">
           <a href=${image.largeImageURL} class="gallery-link">
             <img
-              src=${image.webformatURL}
-              alt=${image.tags}
               class="gallery-img"
+              src=${image.webformatURL}
+              alt="${image.tags}"
               loading="lazy"
             />
           </a>  
@@ -45,16 +55,7 @@ const createGallery = images => {
   galleryListEl.insertAdjacentHTML('beforeend', galleryItemsMarkup);
 
   lightbox.refresh();
-};
-
-const clearGallery = () => {
-  galleryListEl.innerHTML = '';
-};
-const showLoader = () => {
-  loaderEl.classList.add('is-visible');
-};
-const hideLoader = () => {
-  loaderEl.classList.remove('is-visible');
+  hideLoader();
 };
 
 export default { createGallery, clearGallery, showLoader, hideLoader };
