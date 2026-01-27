@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <div class="container">
+      <form class="form">
+        <label>
+          <input
+            class="form-input"
+            type="text"
+            name="searchText"
+            placeholder="Search images..."
+            required
+          />
+        </label>
+        <button class="form-btn" type="submit">Search</button>
+      </form>
+      <ul class="gallery"></ul>
+      <div class="loader-wrapper">
+        <span class="loader">Loading</span><span class="loader-heart"></span>
+      </div>
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
