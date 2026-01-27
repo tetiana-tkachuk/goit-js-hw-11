@@ -21,18 +21,26 @@ function handleImageSearch(e) {
       if (images.length === 0) {
         iziToast.warning({
           message:
-            'Sorry, there are no images matching your search query. Please try again!',
+            'Sorry, there are no images matching<br>your search query. Please try again!',
           messageColor: '#ffffff',
+          messageSize: '16',
           backgroundColor: '#EF4040',
           progressBarColor: '#B51B1B',
           position: 'topRight',
           closeOnClick: true,
         });
+        renderFunctions.hideLoader();
       }
       renderFunctions.createGallery(images);
     })
     .catch(error => {
-      console.log(error);
+      iziToast.error({
+        position: 'topRight',
+        message: 'Sorry, something went wrong...Try later',
+        messageColor: 'black',
+        messageSize: '18',
+        backgroundColor: 'yellow',
+      });
       renderFunctions.hideLoader();
     });
 
