@@ -31,7 +31,10 @@ function handleImageSearch(e) {
       }
       renderFunctions.createGallery(images);
     })
-    .catch(error => console.log(error));
-  renderFunctions.hideLoader();
+    .catch(error => {
+      console.log(error);
+      renderFunctions.hideLoader();
+    });
+
   formEl.reset();
 }
