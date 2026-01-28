@@ -55,7 +55,6 @@ const createGallery = images => {
   galleryListEl.insertAdjacentHTML('beforeend', galleryItemsMarkup);
 
   lightbox.refresh();
-  hideLoader();
 };
 
 export default { createGallery, clearGallery, showLoader, hideLoader };

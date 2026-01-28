@@ -10,8 +10,19 @@ formEl.addEventListener('submit', handleImageSearch);
 
 function handleImageSearch(e) {
   e.preventDefault();
-
   const inputValue = e.target.searchText.value.trim();
+
+  if (inputValue === '') {
+    iziToast.error({
+      position: 'topRight',
+      message: 'Please enter your request in the search field!',
+      messageColor: 'black',
+      messageSize: '16',
+      backgroundColor: 'yellow',
+      closeOnClick: true,
+    });
+    return;
+  }
 
   renderFunctions.clearGallery();
   renderFunctions.showLoader();
@@ -30,8 +41,10 @@ function handleImageSearch(e) {
           closeOnClick: true,
         });
         renderFunctions.hideLoader();
+        return;
       }
       renderFunctions.createGallery(images);
+      renderFunctions.hideLoader();
     })
     .catch(error => {
       iziToast.error({
@@ -40,9 +53,9 @@ function handleImageSearch(e) {
         messageColor: 'black',
         messageSize: '18',
         backgroundColor: 'yellow',
+        closeOnClick: true,
       });
       renderFunctions.hideLoader();
     });
-
   formEl.reset();
 }
