@@ -9,16 +9,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-const clearGallery = () => {
-  galleryListEl.innerHTML = '';
-};
-const showLoader = () => {
-  loaderEl.classList.add('is-visible');
-};
-const hideLoader = () => {
-  loaderEl.classList.remove('is-visible');
-};
-
 const createGallery = images => {
   const galleryItemsMarkup = images
     .map(
@@ -55,6 +45,16 @@ const createGallery = images => {
   galleryListEl.insertAdjacentHTML('beforeend', galleryItemsMarkup);
 
   lightbox.refresh();
+};
+
+const clearGallery = () => {
+  galleryListEl.innerHTML = '';
+};
+const showLoader = () => {
+  loaderEl.classList.add('is-visible');
+};
+const hideLoader = () => {
+  loaderEl.classList.remove('is-visible');
 };
 
 export default { createGallery, clearGallery, showLoader, hideLoader };
